@@ -3,7 +3,7 @@
 # Some emulators make segments that start with a number.
 # VirtualDub requires segment serial numbers to be at the end of the file,
 # otherwise it won't automatically detect all segments. To fix that...
-# (Code is untested...)
+# (C) 2011, Michiel Sikma
 
 import os, re
 
