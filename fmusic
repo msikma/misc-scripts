@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Searches through my music directories for matches.
+# Highlights the full paths of the matches with the match itself highlighted.
+CYAN='\033[0;36m'
+NC='\033[0m'
+if [ -z ${1+x} ]; then
+  echo "usage: fmusic.sh [--all | name]"
+  exit 1
+fi
+if [ $1 = '--all' ]; then
+  $1 = ''
+fi
+
+printf "${CYAN}Main music directory:${NC}\n"
+find /Volumes/Glitch/Music/ | grep -i ".*$1.*" | perl -pe "s:$1:\033[31;1m$&\033[30;0m:gi"
+printf "${CYAN}Incoming directory:${NC}\n"
+find /Volumes/Glitch/Stuff/ | grep -i ".*$1.*" | perl -pe "s:$1:\033[31;1m$&\033[30;0m:gi"
+find /Volumes/Prototype\ Stalker-C/Music/Stuff/ | grep -i ".*$1.*" | perl -pe "s:$1:\033[31;1m$&\033[30;0m:gi"
+printf "${CYAN}Archive directory:${NC}\n"
+find /Volumes/Prototype\ Stalker-C/Music/Archive/ | grep -i ".*$1.*" | perl -pe "s:$1:\033[31;1m$&\033[30;0m:gi"
