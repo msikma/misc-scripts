@@ -1,0 +1,3 @@
+#!/usr/bin/env fish
+echo Backing up Glitch...
+rsync -avrSH8 --progress --delete --stats --exclude=".*/" "/Volumes/Glitch/." "/Volumes/Gencore Phoenix/Glitch Backup"
