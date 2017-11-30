@@ -15,3 +15,6 @@ ln -s ~/Pictures/Collections/Winter ~/Pictures/Winter
 ln -s ~/Pictures/Collections/漫画 ~/Pictures/漫画
 ln -s ~/Pictures/Collections/電車 ~/Pictures/電車
 ln -s ~/Pictures/Collections/食べ物 ~/Pictures/食べ物
+
+ln -s /Volumes/Files/Pictures/Scans ~/Pictures/Scans
+ln -s /Volumes/Files/Pictures/Wallpapers ~/Pictures/Wallpapers
