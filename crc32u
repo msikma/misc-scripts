@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+crc32 $@ | awk '{print toupper($1) " " $2}'
