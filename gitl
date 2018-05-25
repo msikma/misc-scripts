@@ -1,0 +1,46 @@
+#!/usr/bin/env fish
+
+set dirs (command ls -Ahd */)
+set amount (count $dirs)
+set branches
+set longest 1
+
+# Gather information about all directories.
+for n in (seq $amount)
+  set -l dir $dirs[$n]
+  if test -d $dir/.git
+    set is_git_$n 1
+    set branch_$n (git --git-dir $dir/.git rev-parse --abbrev-ref HEAD 2> /dev/null)
+    set shash_$n (git --git-dir $dir/.git rev-parse --short HEAD 2> /dev/null)
+    set date_$n (git --git-dir $dir/.git log -1 --format=%cd --date="format:%b %d %M:%S" 2> /dev/null)
+    set -l branch "branch_$n"
+    set -l shash "shash_$n"
+    set -l length (echo $$branch | awk '{print length}')
+    if [ (math "$length > $longest") = 1 ]
+      set longest $length
+    end
+    if [ (count $$shash) = 0 ]
+      set shash_$n "(init) "
+    end
+    set dir_$n $dir
+  else
+    set is_git_$n 0
+    set dir_$n $dir
+  end
+end
+
+# Display the information.
+for n in (seq $amount)
+  set -l is_git "is_git_$n"
+  set -l branch "branch_$n"
+  set -l shash "shash_$n"
+  set -l datev "date_$n"
+  set -l dir "dir_$n"
+  if [ $$is_git = 1 ]
+    printf "%s %-"$longest"s %s %s\n" $$shash $$branch $$datev $$dir
+  else
+    printf "%s %-"$longest"s %-12s %s\n" "-------" "-" "-" $$dir
+  end
+end
+
+exit 0

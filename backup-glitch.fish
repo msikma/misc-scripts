@@ -1,3 +1,13 @@
 #!/usr/bin/env fish
-echo Backing up Glitch...
-rsync -avrSH8 --progress --delete --stats --exclude=".*/" "/Volumes/Glitch/." "/Volumes/Gencore Phoenix/Glitch Backup"
+if not test -d "/Volumes/Glitch/"
+  echo "Can't access source directory: /Volumes/Glitch/"
+  exit
+end
+if not test -d "/Volumes/Files/Music/Glitch backup"
+  echo "Can't access target directory: /Volumes/Files/Music/Glitch backup/"
+  exit
+end
+
+rsync -ahvrESH8 --delete --progress --stats --exclude=".*/" --exclude=".*" "/Volumes/Glitch/" "/Volumes/Files/Music/Glitch backup/"
+rm -f "/Volumes/Files/Music/Glitch backup/.backup"
+date -u > "/Volumes/Files/Music/Glitch backup/.backup"
