@@ -1,11 +1,13 @@
 #!/usr/bin/env fish
 
 set src \
-"/Users/msikma/Files/"
+"/Users/msikma/Files/" \
+"/Users/msikma/Documents/"
 
 
 set dst \
-"/Volumes/Files/Backups/msikma/Files"
+"/Volumes/Files/Backups/msikma/Files" \
+"/Volumes/Files/Backups/msikma/Documents"
 
 for n in (seq (count $src))
   set s $src[$n]
