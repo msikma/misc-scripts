@@ -2,6 +2,5 @@
 
 echo "backup-dbs         - Backs up databases from MAMP to /Work/"
 echo "backup-glitch      - Backs up music"
-echo "backup-stuff       - Backs up various other things (VMs, pictures, etc.)"
-echo "backup-wallpapers  - Backs up wallpaper images"
+echo "backup-files       - Backs up various other things (VMs, pictures, etc.)"
 echo "backup-zoo-music   - Backs up subset of music to the Happy Zoo"

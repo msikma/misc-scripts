@@ -1,21 +1,11 @@
 #!/usr/bin/env fish
 
 set src \
-"/Users/msikma/Pictures/Collections/" \
-"/Users/msikma/Sheet music/" \
-"/Users/msikma/VMs/" \
-"/Users/msikma/Sites/" \
-"/Users/msikma/Resources/" \
-"/Users/msikma/Books/"
+"/Users/msikma/Files/"
 
 
 set dst \
-"/Volumes/Files/Pictures/Collections/" \
-"/Volumes/Files/Documents/Sheet music/" \
-"/Volumes/Files/Documents/VMs/" \
-"/Volumes/Work/Sites/" \
-"/Volumes/Files/Documents/Resources/" \
-"/Volumes/Files/Documents/Books/"
+"/Volumes/Files/Backups/msikma/Files"
 
 for n in (seq (count $src))
   set s $src[$n]

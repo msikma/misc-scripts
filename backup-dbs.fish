@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 set ts (date "+%Y-%m-%d")
-set dest "/Volumes/Work/Legacy Projects/Database backups/vesuvius"
+set dest "/Volumes/Files/Backups/msikma/Databases"
 set user "root"
 set pass "root"
 set sqlcmd "/Applications/MAMP/Library/bin/mysql"
