@@ -49,7 +49,7 @@ for ((a = 0; a < ${#SRC_DIRS[@]}; a++)); do
     
     if [ -d "$b" ]; then
       cd "$src"
-      zip -r9q "$tmp" "$base"
+      zip -r9q "$tmp" "$base" -x "$base/"node_modules/**\*
       fs=`stat -f%z "$tmp"`
       
       if [[ "$zipdest" && -f "$zipdest" ]]; then
