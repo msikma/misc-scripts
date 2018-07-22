@@ -49,11 +49,11 @@ set dst \
 for n in (seq (count $src))
   set s $src[$n]
   set d $dst[$n]
-  if test -d $s
+  if test -d $d
     echo "Directory is already symlinked: "$s
     exit
   end
-  if not test -d $d
+  if not test -d $s
     echo "Can't access target directory: "$d
     exit
   end
@@ -62,6 +62,6 @@ end
 for n in (seq (count $src))
   set s $src[$n]
   set d $dst[$n]
-  echo "Symlinking: "$d" -> "$s
-  ln -s $d $s
+  echo "Symlinking: "$s" -> "$d
+  ln -s $s $d
 end
