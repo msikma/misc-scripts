@@ -72,3 +72,6 @@ for ((a = 0; a < ${#SRC_DIRS[@]}; a++)); do
     fi
   done
 done
+
+mkdir -p ~/.cache/dada
+echo (date +"%a, %b %d %Y %X %z") > ~/.cache/dada/backup-source

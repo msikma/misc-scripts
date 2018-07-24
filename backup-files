@@ -28,3 +28,6 @@ for n in (seq (count $src))
   echo "Syncing: "$s" -> "$d
   rsync -ahvrESH8 --delete --progress --stats --exclude=".*/" --exclude=".*" $s $d
 end
+
+mkdir -p ~/.cache/dada
+echo (date +"%a, %b %d %Y %X %z") > ~/.cache/dada/backup-files

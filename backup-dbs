@@ -21,3 +21,6 @@ for i in $databases
   du -h "$dest/$i.sql.gz"
 end
 du -h "$dest"
+
+mkdir -p ~/.cache/dada
+echo (date +"%a, %b %d %Y %X %z") > ~/.cache/dada/backup-dbs
