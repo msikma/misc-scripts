@@ -1,0 +1,33 @@
+#!/usr/bin/env fish
+
+# Icon file directory.
+set homedir '/Users/msikma/Projects/osx-folders/icns'
+set files (eval ls "$homedir/*.icns")
+set colors
+
+# Reduce to the basename without extension.
+for i in (seq (count $files))
+  set colors[$i] (eval basename "$files[$i]" .icns)
+end
+
+function usage
+  echo -n 'Usage: color DIRNAME {'
+  for n in (seq (count $colors))
+    if [ $n -gt 1 ]
+      echo -n '|'
+    end
+    echo -n $colors[$n]
+  end
+  echo '}'
+  exit
+end
+
+if not set -q argv[1]
+  usage
+end
+if not set -q argv[2]
+  usage
+end
+
+set target "$homedir/$argv[2].icns"
+fileicon set $argv[1] $target
