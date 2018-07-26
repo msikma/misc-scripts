@@ -63,6 +63,8 @@ for ((a = 0; a < ${#SRC_DIRS[@]}; a++)); do
         else
           echo "- No need to update: $base"
         fi
+        # Remove our temporary file.
+        rm "$tmp"
         
       else
         # If not, copy it over right away.
