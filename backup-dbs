@@ -12,12 +12,12 @@ if not test -d "$dest"
     exit 1
 end
 
-set databases (eval $sqlcmd -u$user -p$pass -e "'show databases;'" | grep -Ev "(mysql|Database|information_schema|performance_schema)")
+set databases (eval $sqlcmd -u$user -p$pass -e "'show databases;'" 2> /dev/null | grep -Ev "(mysql|Database|information_schema|performance_schema)")
 set dbcount (count $databases)
 echo "Backing up $dbcount databases."
 
 for i in $databases
-  eval $dumpcmd --force -u$user -p$pass --databases $i | gzip > "$dest/$i.sql.gz"
+  eval $dumpcmd --force -u$user -p$pass --databases $i 2> /dev/null | gzip > "$dest/$i.sql.gz"
   du -h "$dest/$i.sql.gz"
 end
 du -h "$dest"
