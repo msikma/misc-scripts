@@ -1,14 +1,21 @@
 #!/usr/bin/env fish
 
+set err "backup-dbs: Error:"
+
+if not set -q hostname
+  echo "$err \$hostname is not set"
+  exit 1
+end
+
 set ts (date "+%Y-%m-%d")
-set dest "/Volumes/Files/Backups/msikma/Databases"
+set dest "/Volumes/Files/Backups/$hostname/Databases"
 set user "root"
 set pass "root"
 set sqlcmd "/Applications/MAMP/Library/bin/mysql"
 set dumpcmd "/Applications/MAMP/Library/bin/mysqldump"
 
 if not test -d "$dest"
-    echo "backup-dbs.fish: Error: could not access destination: $dest"
+    echo "$err could not access destination: $dest"
     exit 1
 end
 

@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
 
 SRC_DIRS=("/Users/msikma/Projects" "/Users/msikma/Client projects" "/Users/msikma/Source")
-DEST_DIRS=("/Volumes/Files/Backups/msikma/Projects" "/Volumes/Files/Backups/msikma/Client projects" "/Volumes/Files/Backups/msikma/Source")
+DEST_DIRS=("/Volumes/Files/Backups/$hostname/Projects" "/Volumes/Files/Backups/$hostname/Client projects" "/Volumes/Files/Backups/$hostname/Source")
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 WORK_DIR=`mktemp -d`
 
 err="backup-source: Error:"
+
+if [ -z ${hostname+x} ]; then
+  echo "$err \$hostname is not set"
+  exit 1
+fi
 
 # Check whether our directories exist.
 for ((a = 0; a < ${#SRC_DIRS[@]}; a++)); do
