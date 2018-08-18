@@ -5,7 +5,7 @@ DEST_DIRS=("/Volumes/Files/Backups/$hostname/Projects" "/Volumes/Files/Backups/$
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 WORK_DIR=`mktemp -d`
 
-err="backup-source: Error:"
+err="backup-src: Error:"
 
 if [ -z ${hostname+x} ]; then
   echo "$err \$hostname is not set"
@@ -81,4 +81,4 @@ for ((a = 0; a < ${#SRC_DIRS[@]}; a++)); do
 done
 
 mkdir -p ~/.cache/dada
-echo `date +"%a, %b %d %Y %X %z"` > ~/.cache/dada/backup-source
+echo `date +"%a, %b %d %Y %X %z"` > ~/.cache/dada/backup-src

@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-set err "backup-zoo-music: Error:"
+set err "backup-zoo: Error:"
 set src "/Users/"(whoami)"/Files/Music"
 set dst "/Volumes/happy zoo/dada/Music"
 
@@ -26,4 +26,4 @@ rsync -ahvrESH8 --delete --progress --stats --no-links --exclude=".*/" --exclude
 rsync -ahvrESH8 --delete --progress --stats --no-links --exclude=".*/" --exclude=".*" "/Volumes/Glitch/Music/Classical/" "/Volumes/happy zoo/dada/Music/Classical/"
 
 mkdir -p ~/.cache/dada
-echo (date +"%a, %b %d %Y %X %z") > ~/.cache/dada/backup-zoo-music
+echo (date +"%a, %b %d %Y %X %z") > ~/.cache/dada/backup-zoo
