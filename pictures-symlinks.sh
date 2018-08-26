@@ -1,5 +1,8 @@
 #!/usr/bin/env fish
 
+set err "pictures-symlinks: Error:"
+set root "/Users/msikma/Pictures/"
+
 set src \
 "/Users/msikma/Files/Pictures/Collections/Animals" \
 "/Users/msikma/Files/Pictures/Collections/Avatars" \
@@ -20,8 +23,8 @@ set src \
 "/Users/msikma/Files/Pictures/Collections/電車" \
 "/Users/msikma/Files/Pictures/Collections/食べ物" \
 "/Users/msikma/Files/Pictures/Collections/Temp" \
-"/Volumes/Files/Backups/msikma/Scans" \
-"/Volumes/Files/Backups/msikma/Wallpapers"
+"/Volumes/Files/Backups/Vesuvius/Scans" \
+"/Volumes/Files/Backups/Vesuvius/Wallpapers"
 
 set dst \
 "/Users/msikma/Pictures/Animals" \
@@ -46,15 +49,20 @@ set dst \
 "/Users/msikma/Pictures/Scans" \
 "/Users/msikma/Pictures/Wallpapers"
 
+if not test -d $root
+	echo $err" can't access target directory: "$d
+	exit
+end
+
 for n in (seq (count $src))
   set s $src[$n]
   set d $dst[$n]
   if test -d $d
-    echo "Directory is already symlinked: "$s
+    echo $err" directory is already symlinked: "$d
     exit
   end
   if not test -d $s
-    echo "Can't access target directory: "$d
+    echo $err" cannot find source directory: "$s
     exit
   end
 end
