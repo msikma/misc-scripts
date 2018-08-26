@@ -16,7 +16,7 @@ colors = {
 }
 icon_bases = [
   '/Users/msikma/Projects/osx-folders/icns',
-  '/Users/msikma/Pictures/Icons/Icons'
+  '/Users/msikma/Projects/dada-icons/icns'
 ]
 
 # Make a list of all icons: {<name>: <path>}.
