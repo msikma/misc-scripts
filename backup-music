@@ -2,7 +2,7 @@
 
 set err "backup-files: Error:"
 set src ~/"Files/Music/"
-set dst "/Volumes/Files/Backups/$hostname/Music/"
+set dst "/Volumes/Files/Backups/$hostname/Files/Music/"
 
 if not set -q hostname
   echo "$err \$hostname is not set"
