@@ -1,9 +1,0 @@
-#!/usr/bin/env fish
-
-set c2 (set_color red)
-set c1 (set_color white)
-draw_columns $c2"backup-dbs$c1    Backs up SQL databases"\
-		   $c2"backup-music$c1  Backs up music"\
-		   $c2"backup-files$c1  Backs up various other things"\
-		   $c2"backup-src$c1    Backs up source code directories"\
-		   $c2"backup-zoo$c1    Backs up music to the Happy Zoo"
