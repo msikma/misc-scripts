@@ -13,6 +13,10 @@ if not test -d $dst
   echo "$err Can't access source directory: "$dst
   exit 1
 end
+if not test -d $src
+  echo "$err Cyberduck is not installed."
+  exit 1
+end
 
 echo "Backing up Cyberduck bookmarks to $c3$dst$c2"
 
