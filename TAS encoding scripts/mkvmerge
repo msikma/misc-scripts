@@ -1,0 +1,3 @@
+mkvmerge  --aspect-ratio 4/3
+
+mkvmerge --timecodes 0:times.txt --compression 0:none --aspect-ratio 0:4/3 -o "X:\output.mkv" "X:\final_sd_enc.264" "X:\final_sd2.ogg"
